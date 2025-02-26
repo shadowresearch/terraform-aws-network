@@ -52,32 +52,32 @@
 #   }
 # }
 
-module "security_group_private" {
-  source  = "terraform-aws-modules/security-group/aws"
-  version = "5.1.0"
+# module "security_group_private" {
+#   source  = "terraform-aws-modules/security-group/aws"
+#   version = "5.1.0"
 
-  description        = "Security group for private subnet"
-  egress_cidr_blocks = ["0.0.0.0/0"]
-  name               = "${var.name}-private"
-  vpc_id             = module.vpc.vpc_id
+#   description        = "Security group for private subnet"
+#   egress_cidr_blocks = ["0.0.0.0/0"]
+#   name               = "${var.name}-private"
+#   vpc_id             = module.vpc.vpc_id
 
-  ingress_with_self = [
-    {
-      rule = "all-all"
-    }
-  ]
+#   ingress_with_self = [
+#     {
+#       rule = "all-all"
+#     }
+#   ]
 
-  egress_with_cidr_blocks = [
-    {
-      rule = "all-all"
-    }
-  ]
+#   egress_with_cidr_blocks = [
+#     {
+#       rule = "all-all"
+#     }
+#   ]
 
-  tags = {
-    Network   = var.name
-    Terraform = "terraform-aws-network"
-  }
-}
+#   tags = {
+#     Network   = var.name
+#     Terraform = "terraform-aws-network"
+#   }
+# }
 
 # resource "aws_vpc_security_group_ingress_rule" "db_allow_private" {
 #   description                  = "Allow private subnet to access db"
